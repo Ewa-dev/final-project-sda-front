@@ -1,8 +1,16 @@
-.footer-container {
-    display: flex;
-    justify-content: space-around;
+.footer{
+    position: relative;
+    bottom: 0;
+    background-color: grey;
 
-    span {
-        color: whitesmoke;
-    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-around;
+
+        span {
+            color: whitesmoke;
+        }
+}
+
 }
