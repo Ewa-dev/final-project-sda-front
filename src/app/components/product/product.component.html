@@ -1,2 +1,15 @@
-{{ product.title }}
-<img [src]="product.image" [alt]="product.title">
+<div class="card card-width">
+  <img
+    class="card-img-top"
+    [src]="product.image"
+    [alt]="product.title">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      {{ product.price | currency:'EUR' }}</h6>
+    <p class="card-text">{{ product.description }}</p>
+    <button
+      (click)="onClick(product)"
+      class="btn btn-primary">Add to cart</button>
+  </div>
+</div>
