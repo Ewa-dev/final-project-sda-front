@@ -1,0 +1,10 @@
+<div *ngIf="(cart$ | async) as cart">
+  Products Already added to Cart: {{ cart.length }}
+  <div *ngIf="cart.length; else empty">
+    <app-cart-item *ngFor="let cartItem of cart"></app-cart-item>
+  </div>
+  <ng-template #empty>
+    Cart is empty!
+  </ng-template>
+</div>
+
