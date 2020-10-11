@@ -127,6 +127,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "final-project-sda-front"
 }
