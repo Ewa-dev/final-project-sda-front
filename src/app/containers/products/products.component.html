@@ -3,6 +3,7 @@
 <span (click)="onDisplayModeChange(displayModes.table)"
       class="material-icons cursor-pointer">view_list</span>
 {{ displayMode }}
+
 <div *ngIf="(products$ | async) as products">
   <div *ngIf="displayMode === displayModes.card; else table">
     <app-product *ngFor="let prod of products"
@@ -12,3 +13,6 @@
   <ng-template #table>Should display products as table</ng-template>
 </div>
 
+<div>
+      <app-categories></app-categories>
+</div>
