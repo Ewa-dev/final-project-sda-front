@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { CategoryComponent } from 'src/app/components/category/category.component';
 import { Product } from 'src/app/models/product.model';
 import { ProductsApiService } from 'src/app/services/products-api.service';
@@ -9,22 +11,23 @@ import { ProductsApiService } from 'src/app/services/products-api.service';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  categories: string[];
+  categories: Observable<string[]>;
 
   constructor(private productsApi: ProductsApiService,) { }
 
   ngOnInit(): void {
-    this.productsApi.getProducts().subscribe(products => this.buildCategoriesFrom(products));
+    this.categories = this.productsApi.getProducts().pipe(
+      map((products: Product[]) => this.buildCategoriesFrom(products)),
+    )
   }
 
-  buildCategoriesFrom(products: Product[]) {
-    var categoryNames = {};
+  buildCategoriesFrom(products: Product[]): string[] {
+    let categoryNames = {};
     for (let product of products) {
       if (product.category) {
         categoryNames[product.category] = 1;
       }
     }
-    this.categories = Object.keys(categoryNames); 
+    return Object.keys(categoryNames); 
   }
-
 }
