@@ -12,6 +12,8 @@ import { CartComponent } from './containers/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoriesComponent } from './containers/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     CartComponent,
     CartItemComponent,
-    FormComponent
+    FormComponent,
+    CategoryComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

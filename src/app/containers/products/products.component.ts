@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { DISPLAY_MODES } from '../../models/display-modes';
+import { CategoriesComponent } from '../categories/categories.component';
 
 @Component({
   selector: 'app-products',
