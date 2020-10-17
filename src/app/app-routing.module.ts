@@ -14,7 +14,7 @@ const routes: Routes = [
     component: CartComponent,
   },
   {
-    path: 'test-form',
+    path: 'register-form',
     component: FormComponent,
   }
 ];
