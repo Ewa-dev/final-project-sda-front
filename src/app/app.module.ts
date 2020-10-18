@@ -14,6 +14,7 @@ import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './containers/categories/categories.component';
+import { SearchResultComponent } from './containers/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CategoriesComponent } from './containers/categories/categories.componen
     CartItemComponent,
     FormComponent,
     CategoryComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
