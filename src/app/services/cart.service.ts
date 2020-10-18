@@ -13,7 +13,22 @@ export class CartService {
   addProductToCart(product: Product): void {
     this.cart$.pipe(take(1))
       .subscribe((products: Product[]) => {
-        this.cart.next([...products, product]);
+        const productAlredyInCart = products.find((prod: Product) => prod.id === product.id);
+        if(productAlredyInCart) {
+          const filteredProducts = products.filter((prod: Product) => prod.id === productAlredyInCart.id);
+          const updatedProduct = {...productAlredyInCart, quantity: productAlredyInCart.quantity + product.quantity };
+          this.cart.next([...filteredProducts, updatedProduct]);
+        } else {
+          this.cart.next([...products, product]);
+        }
       });
+  }
+
+  deleteProductFromCart(id: number): void {
+    this.cart$.pipe(take(1))
+      .subscribe((products: Product[]) => {
+        const filteredProducts = products.filter((product: Product) => product.id !== id);
+        this.cart.next(filteredProducts);
+      })
   }
 }

@@ -1,5 +1,5 @@
 <div *ngIf="(cart$ | async) as cart">
-  Products Already added to Cart: {{ cart.length }}
+  Products Already added to Cart: {{ cartQuantity$ | async }}
   <div *ngIf="cart.length; else empty">
     <table class="table">
       <thead>
@@ -8,11 +8,12 @@
           <th scope="col">Thumbnail</th>
           <th scope="col">Qty</th>
           <th scope="col">Price</th>
+          <th scope="col">Total price</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <app-cart-item *ngFor="let cartItem of cart" [product]="cartItem" (removeFromCart)="onRemoveFromCart($event)"></app-cart-item>
+          <app-cart-item *ngFor="let cartItem of cart" [product]="cartItem" (removeFromCart)="onRemoveFromCart($event)"></app-cart-item>
       </tbody>
     </table>
   </div>
