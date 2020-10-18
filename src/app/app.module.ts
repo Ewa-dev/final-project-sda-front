@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './containers/categories/categories.component';
 import { SearchResultComponent } from './containers/search-result/search-result.component';
+import { ProductViewComponent } from './components/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchResultComponent } from './containers/search-result/search-result.
     FormComponent,
     CategoryComponent,
     CategoriesComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ProductViewComponent
   ],
   imports: [
     BrowserModule,
