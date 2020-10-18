@@ -27,8 +27,8 @@ export class CartComponent implements OnInit {
       );
   }
 
-  onRemoveFromCart(id: number) {
-    this.cartService.deleteProductFromCart(id);
+  onRemoveFromCart(partialProduct: Partial<Product>) {
+    this.cartService.deleteProductFromCart(partialProduct);
   }
 
 }

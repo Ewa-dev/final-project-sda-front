@@ -12,12 +12,14 @@ export class ProductComponent {
 
   @Output() onAddToCart: EventEmitter<Product> = new EventEmitter<Product>();
 
-  quantity: FormControl = new FormControl('1');
+  startValue = "1";
+  quantity: FormControl = new FormControl(this.startValue);
 
   onClick(product: Product): void {
     const productWithQuantity: Product = {
-      ...product, quantity: this.quantity.value
+      ...product, quantity: Number.parseFloat(this.quantity.value),
     }
     this.onAddToCart.emit(productWithQuantity);
+    this.quantity.patchValue(this.startValue);
   }
 }

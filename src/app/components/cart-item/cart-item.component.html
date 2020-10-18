@@ -1,7 +1,9 @@
 <tr>    
     <td> {{product.title}} </td>
     <td> <img [src]="product.image" style="width: 150px"> </td>
-    <td> {{product.quantity}} </td>
+    <td>
+        <input type="number" min="0" [max]="product.quantity" [formControl]="quantity">
+    </td>
     <td> {{product.price | currency:'EUR' }} </td>
     <td> {{product.price * product.quantity | currency:'EUR' }} </td>
     <td><button (click)="onRemoveFromCart(product.id)">Remove</button></td>
